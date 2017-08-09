@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Toggler app Snapshot creation 1`] = `
+<div
+  className="toggle-container"
+>
+  <label
+    className="toggler"
+    htmlFor="toogler-label"
+  >
+    <input
+      checked={true}
+      className="toggle-checkbox"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      data-off=""
+      data-on=""
+      title=""
+    />
+  </label>
+</div>
+`;

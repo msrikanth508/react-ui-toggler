@@ -1,0 +1,88 @@
+$color-toggle-on: #0078D7;
+$color-toggle-off: white;
+$transition: 200ms;
+$toggle-height: 2.2rem;
+$toggle-width: 5.5rem;
+$toggle-border: 2px;
+
+
+// *** start here ***
+.disapper-from-screen {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.toggle-container {
+  .toggler {
+    // Do not visually style this, style the inner div instead
+    display: table;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    
+    input {
+      @extend .disapper-from-screen;
+      &:focus + div{
+        text-decoration: underline;
+      }
+    }
+    > div {
+      // Style this
+      cursor: pointer;
+      border-radius: $toggle-height;
+      width: $toggle-width;
+      height: $toggle-height;
+      background: white;
+      user-select: none;
+      position: relative;
+      transition: $transition ease-out;
+      border: 1px solid black;
+      font-size: 0;
+      &:hover {
+        box-shadow: 0 0 6px darken($color-toggle-on, 10%);
+      }
+      &:before {
+        will-change: translate;
+        display: block;
+        position: absolute;
+        top: calc(50% - .5rem);
+        left: .5rem;
+        content: '';
+        width: 1rem;
+        height: 1rem;
+        background: #2a2a2a;
+        border-radius: 50%;
+        transition: $transition;
+      }
+      &:after {
+        font-size: 1rem;
+        position: absolute;
+        right: -50%;
+        top: 50%;
+        transform: translateY(-50%);
+        content: attr(data-off);
+        pointer-events: none;
+      }
+    }
+
+    input:checked + div {
+      background: $color-toggle-on;
+      border: 1px solid black;
+      border-color: $color-toggle-on;
+      &:before {
+        color: $color-toggle-on;
+        transform: translateX(280%); // IE11 fallback
+        transform: translateX(calc(2.5*100% + #{$toggle-border*2}));
+        background: $color-toggle-off;
+      }
+      &:after {
+        content: attr(data-on);
+      }
+    }
+  }
+}
