@@ -1,6 +1,6 @@
 {
   "name": "react-ui-toggler",
-  "version": "1.4.1",
+  "version": "0.0.1",
   "description": "react-ui-toggler",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "lint": "node_modules/.bin/esw config app",
     "lint:watch": "npm run lint -- --watch",
     "test": "cross-env NODE_ENV=test jest",
-    "build": "webpack --config webpack.production.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.production.config.js",
     "start": "webpack-dev-server --devtool eval --progress --hot --content-base app"
   },
   "jest": {
@@ -20,10 +20,12 @@
       "\\.(css|scss)$": "<rootDir>/test/__mocks__/styleMock.js"
     }
   },
+  "peerDependencies": {
+    "react": "15.x"
+  },
   "dependencies": {
-    "babel-runtime": "6.x",
-    "react": "15.x",
-    "react-dom": "15.x"
+    "react-dom": "15.x",
+    "react": "15.x"
   },
   "devDependencies": {
     "babel-core": "6.x",

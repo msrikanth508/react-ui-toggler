@@ -6,7 +6,6 @@ exports[`The Toggler app Snapshot creation 1`] = `
 >
   <label
     className="toggler"
-    htmlFor="toogler-label"
   >
     <input
       checked={true}
