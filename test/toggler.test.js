@@ -21,17 +21,21 @@ describe('The Toggler app', () => {
     const wrapper = mount(<Toggler offLabel='OFF'/>);
     expect(wrapper.find('[data-off="OFF"]').length).toEqual(1);
   });
-  // it('Test onChange prop', () => {
-  //   // const mockFunc = jest.fn();
-  //   // const wrapper = mount(<Toggler onChange={mockFunc}/>);
-  //   // expect(mockFunc).toBeCalled();
-
-  // const wrapper = shallow(<Toggler/>);
-  //  wrapper.instance().onChange = jest.fn();
-  //  wrapper.update();
-  //  wrapper.find('.toggle-checkbox').simulate('click');
-  //  wrapper.instance().onChange();
-  //  expect(wrapper.onChange).toHaveBeenCalled();
+    it('Test default state', () => {    
+      const wrapper = shallow(<Toggler />);    
+      expect(wrapper.state().active).toEqual(false);    
+  });
+  it('Simulate change event', () => {    
+    const wrapper = shallow(<Toggler />);
+    const ele = wrapper.find('input');
+    
+    ele.simulate('change');
+    expect(wrapper.state().active).toEqual(true);    
+  });
+  // it('Required onChange prop', () => {
+  //   const onChange = jest.fn();
+  //   const wrapper = shallow(<Toggler onChange={onChange}/>);
+  //   expect(wrapper.props().onChange).toBeDefined();
   // });
   it('Snapshot creation', () => {
     const rendered = renderer.create(
