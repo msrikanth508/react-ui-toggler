@@ -9,9 +9,14 @@
     "lint:watch": "npm run lint -- --watch",
     "test": "cross-env NODE_ENV=test jest",
     "build": "cross-env NODE_ENV=production webpack --config webpack.production.config.js",
-    "start": "webpack-dev-server --devtool eval --progress --hot --content-base app"
+    "start": "webpack-dev-server --devtool eval --progress --hot --content-base app",
+    "cover": "node_modules/istanbul/lib/cli.js cover"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "app/toggler/*.js"
+    ],
+    "collectCoverage": true,
     "moduleDirectories": [
       "node_modules"
     ],
@@ -39,6 +44,7 @@
     "commitizen": "^2.9.3",
     "conventional-changelog-cli": "1.x",
     "copy-webpack-plugin": "latest",
+    "coveralls": "^2.13.1",
     "cross-env": "^5.0.4",
     "css-loader": "~0.26.1",
     "cz-conventional-changelog": "^1.2.0",
