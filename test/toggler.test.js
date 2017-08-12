@@ -32,11 +32,13 @@ describe('The Toggler app', () => {
     ele.simulate('change');
     expect(wrapper.state().active).toEqual(true);    
   });
-  // it('Required onChange prop', () => {
-  //   const onChange = jest.fn();
-  //   const wrapper = shallow(<Toggler onChange={onChange}/>);
-  //   expect(wrapper.props().onChange).toBeDefined();
-  // });
+  it('Required onChange prop', () => {
+    const onChange = jest.fn();
+    const wrapper = shallow(<Toggler onChange={onChange}/>);
+    wrapper.find('input').simulate('change');
+    expect(onChange).toHaveBeenCalledWith(true);
+    expect(wrapper.state().active).toEqual(true); 
+  });
   it('Snapshot creation', () => {
     const rendered = renderer.create(
       <Toggler active={true}/>
