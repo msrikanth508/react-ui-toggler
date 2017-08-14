@@ -27,8 +27,11 @@ $toggle-border: 2px;
     
     input {
       @extend .disapper-from-screen;
-      &:focus + div{
+      &:disabled + div{
         text-decoration: underline;
+        background-color: #c1c1c1;
+        opacity: 0.5;
+        pointer-events: none;
       }
     }
     > div {
@@ -51,7 +54,7 @@ $toggle-border: 2px;
         display: block;
         position: absolute;
         top: calc(50% - .5rem);
-        left: .5rem;
+        left: .9rem;
         content: '';
         width: 1rem;
         height: 1rem;

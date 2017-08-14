@@ -10,17 +10,18 @@ export default class Toggler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: props.active,
+      isActive: props.isActive,
     };
   }
   /**
    * onChange Event
    */
   onChange =() => {
-    const active = !this.state.active;
-    this.setState(Object.assign({}, this.state, { active }));
+    let { isActive } = this.state;
+    isActive = !isActive;
+    this.setState({ isActive });
     if (typeof this.props.onChange === 'function') {
-      this.props.onChange(active);
+      this.props.onChange(isActive);
     }
   }
   /**
@@ -30,7 +31,13 @@ export default class Toggler extends React.Component {
     return (
       <div className="toggle-container">
         <label className="toggler">
-          <input type="checkbox" className="toggle-checkbox" checked={this.state.active} onChange={this.onChange} />
+          <input
+            disabled={this.props.disabled}
+            type="checkbox"
+            className="toggle-checkbox"
+            checked={this.state.isActive}
+            onChange={this.onChange}
+          />
           <div
             data-on={this.props.onLabel}
             data-off={this.props.offLabel}
@@ -50,7 +57,8 @@ Toggler.propTypes = {
   tooltip: PropTypes.string,
   onLabel: PropTypes.string,
   offLabel: PropTypes.string,
-  active: PropTypes.bool,
+  isActive: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 /**
@@ -60,6 +68,7 @@ Toggler.defaultProps = {
   onLabel: '',
   offLabel: '',
   tooltip: '',
-  active: false,
+  isActive: false,
   onChange: null,
+  disabled: false,
 };

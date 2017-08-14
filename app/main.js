@@ -9,7 +9,7 @@ ReactDOM.render(
   <Toggler
     onLabel="ON"
     offLabel="OFF"
-    active={false}
+    isActive={false}
   />,
   document.body.appendChild(document.createElement('div')),
 );

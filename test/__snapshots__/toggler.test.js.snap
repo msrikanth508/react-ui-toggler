@@ -10,6 +10,7 @@ exports[`The Toggler app Snapshot creation 1`] = `
     <input
       checked={true}
       className="toggle-checkbox"
+      disabled={false}
       onChange={[Function]}
       type="checkbox"
     />

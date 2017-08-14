@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["react"], factory);
 	else if(typeof exports === 'object')
-		exports["shared-components"] = factory(require("react"));
+		exports["ReactUIToggler"] = factory(require("react"));
 	else
-		root["shared-components"] = factory(root["react"]);
+		root["ReactUIToggler"] = factory(root["react"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -130,15 +130,17 @@ var Toggler = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Toggler.__proto__ || Object.getPrototypeOf(Toggler)).call(this, props));
 
     _this.onChange = function () {
-      var active = !_this.state.active;
-      _this.setState(Object.assign({}, _this.state, { active: active }));
+      var isActive = _this.state.isActive;
+
+      isActive = !isActive;
+      _this.setState({ isActive: isActive });
       if (typeof _this.props.onChange === 'function') {
-        _this.props.onChange(active);
+        _this.props.onChange(isActive);
       }
     };
 
     _this.state = {
-      active: props.active
+      isActive: props.isActive
     };
     return _this;
   }
@@ -160,7 +162,13 @@ var Toggler = function (_React$Component) {
         _react2.default.createElement(
           'label',
           { className: 'toggler' },
-          _react2.default.createElement('input', { type: 'checkbox', className: 'toggle-checkbox', checked: this.state.active, onChange: this.onChange }),
+          _react2.default.createElement('input', {
+            disabled: this.props.disabled,
+            type: 'checkbox',
+            className: 'toggle-checkbox',
+            checked: this.state.isActive,
+            onChange: this.onChange
+          }),
           _react2.default.createElement('div', {
             'data-on': this.props.onLabel,
             'data-off': this.props.offLabel,
@@ -189,8 +197,9 @@ Toggler.defaultProps = {
   onLabel: '',
   offLabel: '',
   tooltip: '',
-  active: false,
-  onChange: null
+  isActive: false,
+  onChange: null,
+  disabled: false
 };
 
 /***/ }),
