@@ -27,9 +27,9 @@ npm install react-ui-toggler
 Include the component's CSS with
 
 ```javascript
-import "react-ui-toggler/dist/react-ui-toggler.css" // for ES6 modules
+import "react-ui-toggler/dist/react-ui-toggler.min.css" // for ES6 modules
 // or
-require("react-ui-toggler/dist/react-ui-toggler.css") // for CommonJS
+require("react-ui-toggler/dist/react-ui-toggler.min.css") // for CommonJS
 ```
 
 ## Development
