@@ -38,7 +38,7 @@ describe('The Toggler app', () => {
     const onChange = jest.fn();
     const wrapper = shallow(<Toggler onChange={onChange}/>);
     wrapper.find('input').simulate('change');
-    expect(onChange).toHaveBeenCalledWith(true);
+    expect(onChange).toHaveBeenCalledWith(undefined, true);
     expect(wrapper.state().isActive).toEqual(true); 
   });
    it('Check disabled prop', () => {

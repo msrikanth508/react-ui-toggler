@@ -16,12 +16,12 @@ export default class Toggler extends React.Component {
   /**
    * onChange Event
    */
-  onChange =() => {
+  onChange =(event) => {
     let { isActive } = this.state;
     isActive = !isActive;
     this.setState({ isActive });
     if (typeof this.props.onChange === 'function') {
-      this.props.onChange(isActive);
+      this.props.onChange(event, isActive);
     }
   }
   /**
