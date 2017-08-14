@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: './index.js',
+    filename: './index.min.js',
     library: 'ReactUIToggler',
     libraryTarget: 'umd'
   },
@@ -53,18 +53,18 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false,
-    //     screw_ie8: true,
-    //   },
-    //   output: {
-    //     comments: false,
-    //   },
-    //   sourceMap: true,
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+      },
+      output: {
+        comments: false,
+      },
+      sourceMap: true,
+    }),
     new ExtractTextPlugin({
-      filename: 'react-ui-toggler.css',
+      filename: 'react-ui-toggler.min.css',
       allChunks: true,
     })
   ],
