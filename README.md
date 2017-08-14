@@ -4,6 +4,8 @@
 
 A simple and effective react toggle component.
 
+![webp net-gifmaker 2](https://user-images.githubusercontent.com/8520311/29267011-7f468140-8104-11e7-8ed8-06e5e582578f.gif)
+
 ## Props
 
 The component takes the following props.
