@@ -18,6 +18,10 @@ The component takes the following props.
 | onChange		    | _function_ |    | Callback function to invoke when the user clicks on the toggler. The function signature should be the following:  `const func = (e, isActive) => { }`. Function returns event and toggler status whether it's active or not.  |
 | onLabel		    | _string_  |    | You can pass any string to be shown when toggler is on. |
 
+## Examples
+
+Find more examples [here](https://msrikanth508.github.io/react-ui-toggler/#examples)
+
 ## Installation
 
 ```bash
