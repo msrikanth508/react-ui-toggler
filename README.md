@@ -21,7 +21,7 @@ The component takes the following props.
 ## Installation
 
 ```bash
-npm install react-ui-toggler
+npm install react-ui-toggler --save
 ```
 
 ## Usage
